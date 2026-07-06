@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qubix IT — We See What Others Miss</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bg-grid"></div>
+<div class="glow-orb one"></div>
+<div class="glow-orb two"></div>
+
+<header>
+  <nav>
+    <div class="brand">
+      <img src="logo.png" alt="Qubix IT logo">
+      <span>QUBIX IT</span>
+    </div>
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#services">Services</a>
+      <a href="#secret">Lab</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Start a Project</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="warpCanvas" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">Qubix IT</div>
+        <h1>Building the future,<span class="accent-line">not following it.</span></h1>
+        <p class="lede">We engineer intelligent digital solutions that help businesses innovate, automate, and grow in a rapidly evolving world.</p>
+        <div class="slogan">"We see what others miss"</div>
+        <div class="btn-row">
+          <a href="#services" class="btn btn-primary">Explore Services</a>
+          <a href="#contact" class="btn btn-ghost">Start Your Project</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="ring r2"></div>
+        <div class="ring"></div>
+        <img class="logo-plate" src="logo.png" alt="Qubix IT cube mark">
+        <div class="tag-chip t1">AI &amp; IoT</div>
+        <div class="tag-chip t2">Cyber Consultation</div>
+        <div class="tag-chip t3">Web &amp; App Dev</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section class="story" id="story">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story-copy">
+          <div class="eyebrow">Our Story</div>
+          <blockquote>"We believe every person is like a piece of a Rubik's Cube — unique, valuable, and destined for a place where they belong. Our purpose is to help people discover that place, unlock their potential, and turn their dreams into reality."</blockquote>
+          <p class="attr">— The idea behind Qubix IT</p>
+        </div>
+        <div class="cube-wall" id="cubeWall">
+          <div class="piece"><span>01</span></div>
+          <div class="piece accent-piece"><span>02</span></div>
+          <div class="piece"><span>03</span></div>
+          <div class="piece"><span>04</span></div>
+          <div class="piece"><span>05</span></div>
+          <div class="piece"><span>06</span></div>
+          <div class="piece accent-piece"><span>07</span></div>
+          <div class="piece"><span>08</span></div>
+          <div class="piece"><span>09</span></div>
+          <div class="piece"><span>10</span></div>
+          <div class="piece"><span>11</span></div>
+          <div class="piece accent-piece"><span>12</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION / MISSION / SLOGAN -->
+  <section class="vm">
+    <div class="wrap">
+      <div class="vm-grid">
+        <div class="vm-card reveal">
+          <div class="icon">◈</div>
+          <h3>Vision</h3>
+          <p>To create a world where no dream is abandoned and no talent is left behind.</p>
+        </div>
+        <div class="vm-card reveal">
+          <div class="icon">◇</div>
+          <h3>Mission</h3>
+          <p>To build digital and human-centered innovations that unlock potential, empower dreams, and create opportunities for all.</p>
+        </div>
+        <div class="vm-card slogan-card reveal">
+          <div class="icon">✧</div>
+          <h3>"We see what others miss"</h3>
+          <p>Every project starts by finding the piece nobody else was looking for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">By The Numbers</div>
+        <h2>Momentum you can measure.</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-number"><span class="counter" data-target="25">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number"><span class="counter" data-target="15">0</span><span class="suffix">+</span></div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number"><span class="counter" data-target="6">0</span></div>
+          <div class="stat-label">Core Services</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Support Availability</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">What We Do</div>
+        <h2>Services built around real projects.</h2>
+        <p>Every engagement is scoped around your problem, not a fixed package — from a single build to an ongoing partnership.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="num">01</span>
+          <h3>Web Development</h3>
+          <p>Responsive websites, business sites, web applications, and e-commerce platforms built to scale.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="num">02</span>
+          <h3>App Development</h3>
+          <p>Native and cross-platform mobile applications designed around how your users actually work.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="num">03</span>
+          <h3>AI &amp; IoT Products</h3>
+          <p>Purpose-built AI tools, automation, and connected IoT systems tailored to your business, not generic templates.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="num">04</span>
+          <h3>Business Development Support</h3>
+          <p>Strategy, consultation, and technical guidance to help your business grow with the right technology decisions.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="num">05</span>
+          <h3>Cyber Consultation</h3>
+          <p>Security assessments and practical guidance to protect your systems, data, and reputation.</p>
+        </div>
+        <div class="service-card reveal">
+          <span class="num">06</span>
+          <h3>Competitions &amp; Hackathons</h3>
+          <p>End-to-end hosting and organization for tech competitions and hackathons, from concept to live event.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECRET PROJECT -->
+  <section class="secret" id="secret">
+    <div class="wrap">
+      <div class="secret-panel">
+        <div class="lock">🔒</div>
+        <h2>████ CONFIDENTIAL ████</h2>
+        <div class="subtitle">PROJECT: [ CLASSIFIED ]</div>
+        <div class="terminal">
+          <div class="line">&gt; Initializing...</div>
+          <div class="line">&gt; Decrypting...</div>
+          <div class="line">&gt; Connecting...</div>
+          <div class="line denied">&gt; Access Denied — Security Level: ALPHA</div>
+          <div class="line">Project Status</div>
+          <div class="bar-track"><div class="bar-fill"></div></div>
+          <div class="line">68% — Authorized personnel only.<span class="cursor"></span></div>
+        </div>
+        <p class="blurb">The next generation of intelligent technology is currently under development.</p>
+        <p class="blurb">We are creating something that will redefine digital innovation.</p>
+        <p class="stay">Until then... stay curious.</p>
+        <span class="btn-disabled">COMING SOON</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Why Qubix IT</div>
+        <h2>Six reasons teams choose to build with us.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item reveal"><div class="dot"></div><div><h4>Innovation</h4><p>We look for the approach others haven't tried yet.</p></div></div>
+        <div class="why-item reveal"><div class="dot"></div><div><h4>Quality</h4><p>Every build is engineered to last, not just to launch.</p></div></div>
+        <div class="why-item reveal"><div class="dot"></div><div><h4>Transparency</h4><p>You always know what we're building and why.</p></div></div>
+        <div class="why-item reveal"><div class="dot"></div><div><h4>Security</h4><p>Protection is designed in from day one, not bolted on.</p></div></div>
+        <div class="why-item reveal"><div class="dot"></div><div><h4>Global Vision</h4><p>We build for teams competing on the world stage.</p></div></div>
+        <div class="why-item reveal"><div class="dot"></div><div><h4>Continuous Support</h4><p>Our involvement doesn't end at delivery.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Our Process</div>
+        <h2>From idea to a system that runs itself.</h2>
+      </div>
+      <div class="process-track">
+        <div class="process-step reveal"><div class="node">1</div><h4>Discover</h4></div>
+        <div class="process-step reveal"><div class="node">2</div><h4>Research</h4></div>
+        <div class="process-step reveal"><div class="node">3</div><h4>Design</h4></div>
+        <div class="process-step reveal"><div class="node">4</div><h4>Develop</h4></div>
+        <div class="process-step reveal"><div class="node">5</div><h4>Deploy</h4></div>
+        <div class="process-step reveal"><div class="node">6</div><h4>Support</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENT FEEDBACK -->
+  <section class="testimonials" id="feedback">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Client Feedback</div>
+        <h2>What people say after building with us.</h2>
+        <p>A few words from the businesses and teams we've worked alongside.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">Qubix IT understood exactly what our business needed before we could fully explain it ourselves. The final platform runs smoother than anything we've used before.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">RS</div>
+            <div>
+              <div class="testimonial-name">Ravindu Silva</div>
+              <div class="testimonial-role">Founder, Retail Startup</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">From the first call to launch day, the team stayed transparent about timelines and trade-offs. Our automation now saves hours every single week.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">NF</div>
+            <div>
+              <div class="testimonial-name">Nadia Fernando</div>
+              <div class="testimonial-role">Operations Lead, Logistics Firm</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">They hosted our hackathon end to end and it felt more polished than events with triple the budget. Our community is still talking about it.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">DP</div>
+            <div>
+              <div class="testimonial-name">Dinuka Perera</div>
+              <div class="testimonial-role">Community Manager, Tech Meetup</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" style="border-bottom:none;">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="eyebrow">Get In Touch</div>
+          <h2>Let's build something extraordinary.</h2>
+          <p style="color:var(--light-text); font-size:15px; max-width:400px;">Tell us about your project and we'll get back to you within one business day.</p>
+          <div class="contact-info">
+            <div class="row">
+              <div class="label">Phone</div>
+              <div class="val">076 879 7352 · 076 048 6008</div>
+            </div>
+            <div class="row">
+              <div class="label">Email</div>
+              <div class="val">qubixitinfo@gmail.com</div>
+            </div>
+            <div class="row">
+              <div class="label">Working Hours</div>
+              <div class="val">Monday – Friday, 09:00 AM – 05:00 PM</div>
+            </div>
+          </div>
+        </div>
+        <form action="https://formsubmit.co/qubixitinfo@gmail.com" method="POST" id="contactForm">
+          <input type="hidden" name="_subject" value="New enquiry from Qubix IT website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none">
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="+94 ...">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img src="logo.png" alt="Qubix IT logo">
+          <span>QUBIX IT</span>
+        </div>
+        <p class="desc">Building the future through technology. We see what others miss.</p>
+      </div>
+      <div>
+        <h5>Navigate</h5>
+        <ul>
+          <li><a href="#story">Story</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#secret">Lab</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <div class="socials">
+          <a href="https://www.linkedin.com/company/qubixit/" target="_blank" rel="noopener noreferrer" aria-label="Qubix IT on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/1LQyAZeMYg/" target="_blank" rel="noopener noreferrer" aria-label="Qubix IT on Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.68l.4-3.11H13.5V7.9c0-.9.25-1.51 1.54-1.51h1.65V3.6C16.4 3.55 15.34 3.46 14.1 3.46c-2.5 0-4.21 1.53-4.21 4.33v2.1H7.2v3.11h2.69v8h3.61z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/qubixit?igsh=MXNibms1ZmhncTBldA==" target="_blank" rel="noopener noreferrer" aria-label="Qubix IT on Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Qubix IT. All rights reserved.</span>
+      <span>qubixitinfo@gmail.com</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
