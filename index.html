@@ -65,8 +65,21 @@
       <a href="#contact">Contact</a>
     </div>
     <a href="#contact" class="nav-cta">Start a Project</a>
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
+
+<div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+<nav class="mobile-nav-panel" id="mobileNavPanel" aria-label="Mobile navigation">
+  <a href="#story">Story</a>
+  <a href="#services">Services</a>
+  <a href="#secret">Lab</a>
+  <a href="#feedback">Feedback</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="nav-cta">Start a Project</a>
+</nav>
 
 <main>
 
@@ -263,15 +276,24 @@
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Our Process</div>
-        <h2>From idea to a system that runs itself.</h2>
+        <h2>A cycle we run again for every project.</h2>
+        <p>It doesn't stop at delivery — Support feeds straight back into Discover for what comes next.</p>
       </div>
-      <div class="process-track">
-        <div class="process-step reveal"><div class="node">1</div><h4>Discover</h4></div>
-        <div class="process-step reveal"><div class="node">2</div><h4>Research</h4></div>
-        <div class="process-step reveal"><div class="node">3</div><h4>Design</h4></div>
-        <div class="process-step reveal"><div class="node">4</div><h4>Develop</h4></div>
-        <div class="process-step reveal"><div class="node">5</div><h4>Deploy</h4></div>
-        <div class="process-step reveal"><div class="node">6</div><h4>Support</h4></div>
+      <div class="process-circle">
+        <svg class="process-ring" viewBox="0 0 400 400" aria-hidden="true">
+          <circle class="ring-track" cx="200" cy="200" r="168"></circle>
+          <circle class="ring-progress" cx="200" cy="200" r="168"></circle>
+        </svg>
+        <div class="process-center">
+          <div class="loop-icon">&#8635;</div>
+          <span>Built to<br>repeat</span>
+        </div>
+        <div class="process-node reveal" style="--x:50%; --y:6.5%;"><div class="node">1</div><h4>Discover</h4></div>
+        <div class="process-node reveal" style="--x:89%; --y:28%;"><div class="node">2</div><h4>Research</h4></div>
+        <div class="process-node reveal" style="--x:89%; --y:72%;"><div class="node">3</div><h4>Design</h4></div>
+        <div class="process-node reveal" style="--x:50%; --y:93.5%;"><div class="node">4</div><h4>Develop</h4></div>
+        <div class="process-node reveal" style="--x:11%; --y:72%;"><div class="node">5</div><h4>Deploy</h4></div>
+        <div class="process-node reveal" style="--x:11%; --y:28%;"><div class="node">6</div><h4>Support</h4></div>
       </div>
     </div>
   </section>

@@ -1,3 +1,38 @@
+  // Mobile hamburger menu — open/close slide-in panel, close on link click, overlay click, or Escape.
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const overlay = document.getElementById('mobileNavOverlay');
+    const panel = document.getElementById('mobileNavPanel');
+    if(!toggle || !overlay || !panel) return;
+
+    function openMenu(){
+      toggle.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      overlay.classList.add('open');
+      panel.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu(){
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      overlay.classList.remove('open');
+      panel.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    toggle.addEventListener('click', () => {
+      toggle.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    overlay.addEventListener('click', closeMenu);
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if(window.innerWidth > 860) closeMenu();
+    });
+  })();
+
   // Hero "cyber travel" warp effect — particles streaming outward like flying through a data tunnel.
   (function(){
     const canvas = document.getElementById('warpCanvas');
