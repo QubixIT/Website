@@ -279,7 +279,7 @@
         <h2>A cycle we run again for every project.</h2>
         <p>It doesn't stop at delivery — Support feeds straight back into Discover for what comes next.</p>
       </div>
-      <div class="process-circle">
+      <div class="process-circle" id="processCircle">
         <svg class="process-ring" viewBox="0 0 400 400" aria-hidden="true">
           <circle class="ring-track" cx="200" cy="200" r="168"></circle>
           <circle class="ring-progress" cx="200" cy="200" r="168"></circle>
@@ -288,12 +288,13 @@
           <div class="loop-icon">&#8635;</div>
           <span>Built to<br>repeat</span>
         </div>
-        <div class="process-node reveal" data-angle="-90"><div class="node">1</div><h4>Discover</h4></div>
-        <div class="process-node reveal" data-angle="-30"><div class="node">2</div><h4>Research</h4></div>
-        <div class="process-node reveal" data-angle="30"><div class="node">3</div><h4>Design</h4></div>
-        <div class="process-node reveal" data-angle="90"><div class="node">4</div><h4>Develop</h4></div>
-        <div class="process-node reveal" data-angle="150"><div class="node">5</div><h4>Deploy</h4></div>
-        <div class="process-node reveal" data-angle="210"><div class="node">6</div><h4>Support</h4></div>
+        <div class="signal-ball" id="signalBall" aria-hidden="true"></div>
+        <div class="process-node reveal" data-angle="-90" tabindex="0" role="button" aria-label="Discover stage"><div class="node">1</div><h4>Discover</h4></div>
+        <div class="process-node reveal" data-angle="-30" tabindex="0" role="button" aria-label="Research stage"><div class="node">2</div><h4>Research</h4></div>
+        <div class="process-node reveal" data-angle="30" tabindex="0" role="button" aria-label="Design stage"><div class="node">3</div><h4>Design</h4></div>
+        <div class="process-node reveal" data-angle="90" tabindex="0" role="button" aria-label="Develop stage"><div class="node">4</div><h4>Develop</h4></div>
+        <div class="process-node reveal" data-angle="150" tabindex="0" role="button" aria-label="Deploy stage"><div class="node">5</div><h4>Deploy</h4></div>
+        <div class="process-node reveal" data-angle="210" tabindex="0" role="button" aria-label="Support stage"><div class="node">6</div><h4>Support</h4></div>
       </div>
     </div>
   </section>

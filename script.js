@@ -33,38 +33,127 @@
     });
   })();
 
-  // Position the circular process-diagram nodes using real measured geometry —
-  // computed from the SVG ring's actual radius, so nodes always land exactly
-  // on the ring regardless of screen size (no percentage guesswork).
+  // Circular process diagram: nodes are placed using real measured ring geometry
+  // (not guessed percentages), and a glowing "signal" travels the ring like a
+  // live network ping — ambiently on its own, and directly to whichever node is tapped.
   (function(){
-    const circle = document.querySelector('.process-circle');
-    const ring = document.querySelector('.process-circle .ring-track');
+    const circle = document.getElementById('processCircle');
     const nodes = document.querySelectorAll('.process-node');
-    if(!circle || !ring || !nodes.length) return;
+    const ball = document.getElementById('signalBall');
+    if(!circle || !nodes.length) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Single shared source of truth for ring geometry, used by both node
+    // placement and the signal ball, so they can never fall out of sync.
+    let geo = { size: 0, cx: 0, cy: 0, radius: 0 };
+    function measure(){
+      const size = circle.clientWidth; // container is a 1:1 aspect-ratio square
+      geo.size = size;
+      geo.cx = size / 2;
+      geo.cy = size / 2;
+      geo.radius = size * (168 / 400); // matches the SVG ring's r=168 on a 400 viewBox
+    }
+    function pointOnRing(angleDeg){
+      const rad = angleDeg * (Math.PI / 180);
+      return {
+        x: geo.cx + geo.radius * Math.cos(rad),
+        y: geo.cy + geo.radius * Math.sin(rad)
+      };
+    }
 
     function placeNodes(){
-      const size = circle.clientWidth; // container is a 1:1 aspect-ratio square
-      if(!size) return;
-      const cx = size / 2;
-      const cy = size / 2;
-      // ring radius (168) is defined against a 400-unit viewBox in the SVG,
-      // so its real-world radius is always 168/400 of the rendered width.
-      const radius = size * (168 / 400);
+      measure();
       nodes.forEach(node => {
-        const angleDeg = parseFloat(node.getAttribute('data-angle'));
-        const angleRad = angleDeg * (Math.PI / 180);
-        const x = cx + radius * Math.cos(angleRad);
-        const y = cy + radius * Math.sin(angleRad);
-        node.style.left = x + 'px';
-        node.style.top = y + 'px';
+        const angle = parseFloat(node.getAttribute('data-angle'));
+        const p = pointOnRing(angle);
+        node.style.left = p.x + 'px';
+        node.style.top = p.y + 'px';
       });
+      if(ball && !reduceMotion){
+        const p = pointOnRing(currentAngle);
+        ball.style.left = p.x + 'px';
+        ball.style.top = p.y + 'px';
+      }
     }
 
     placeNodes();
     window.addEventListener('resize', placeNodes);
     window.addEventListener('load', placeNodes);
-    // Re-check shortly after fonts/layout settle, in case initial measurement was 0.
-    setTimeout(placeNodes, 250);
+    setTimeout(placeNodes, 250); // re-check once fonts/layout settle
+
+    if(!ball || reduceMotion) return; // keep it simple/static for reduced-motion users
+
+    let currentAngle = -90; // starts at node 1 (Discover)
+    let animId = null;
+    let ambientId = null;
+
+    function setBall(angleDeg){
+      const p = pointOnRing(angleDeg);
+      ball.style.left = p.x + 'px';
+      ball.style.top = p.y + 'px';
+    }
+
+    function stopAmbient(){
+      if(ambientId) cancelAnimationFrame(ambientId);
+      ambientId = null;
+    }
+
+    function startAmbient(){
+      stopAmbient();
+      let last = performance.now();
+      const speed = 12; // degrees per second — slow, steady drift like a live signal
+      function tick(now){
+        const dt = (now - last) / 1000;
+        last = now;
+        currentAngle = (currentAngle + speed * dt) % 360;
+        setBall(currentAngle);
+        ambientId = requestAnimationFrame(tick);
+      }
+      ambientId = requestAnimationFrame(tick);
+    }
+
+    function travelTo(targetAngle, node){
+      stopAmbient();
+      if(animId) cancelAnimationFrame(animId);
+
+      const start = currentAngle;
+      const delta = ((targetAngle - start) % 360 + 360) % 360; // always travel clockwise, "forward" through the cycle
+      const duration = Math.max(400, delta * 4); // faster for short hops, capped floor for very short ones
+      const startTime = performance.now();
+
+      function step(now){
+        const t = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // ease-out, like a signal settling into place
+        currentAngle = start + delta * eased;
+        setBall(currentAngle);
+        if(t < 1){
+          animId = requestAnimationFrame(step);
+        } else {
+          currentAngle = targetAngle;
+          setBall(currentAngle);
+          if(node){
+            node.classList.add('pinged');
+            setTimeout(() => node.classList.remove('pinged'), 700);
+          }
+          setTimeout(startAmbient, 500); // resume the ambient drift after a short pause
+        }
+      }
+      animId = requestAnimationFrame(step);
+    }
+
+    nodes.forEach(node => {
+      const angle = parseFloat(node.getAttribute('data-angle'));
+      node.addEventListener('click', () => travelTo(angle, node));
+      node.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          travelTo(angle, node);
+        }
+      });
+    });
+
+    startAmbient();
   })();
 
   // Hero "cyber travel" warp effect — particles streaming outward like flying through a data tunnel.

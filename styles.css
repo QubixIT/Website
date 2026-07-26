@@ -953,7 +953,40 @@
     transform:scale(1.15);
     box-shadow:0 0 20px rgba(66,198,255,0.5);
   }
+  .process-node{ cursor:pointer; }
+  .process-node:focus-visible .node{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
   .process-node h4{ font-size:13.5px; }
+
+  /* Signal ball — travels the ring like a live network ping, jumps to whichever node is tapped */
+  .signal-ball{
+    position:absolute;
+    width:12px; height:12px;
+    border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 10px 3px rgba(66,198,255,0.85), 0 0 26px 8px rgba(14,94,255,0.45);
+    left:50%; top:50%;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    z-index:2;
+  }
+
+  @keyframes node-ping{
+    0%{ box-shadow:0 0 0 0 rgba(66,198,255,0.6), 0 0 20px rgba(66,198,255,0.5); }
+    70%{ box-shadow:0 0 0 14px rgba(66,198,255,0), 0 0 20px rgba(66,198,255,0.5); }
+    100%{ box-shadow:0 0 0 0 rgba(66,198,255,0), 0 0 20px rgba(66,198,255,0.5); }
+  }
+  .process-node.pinged .node{
+    background:var(--secondary);
+    color:#fff;
+    animation:node-ping 0.7s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .signal-ball{ display:none; }
+  }
 
   @media (max-width:600px){
     .process-node{ width:88px; }
