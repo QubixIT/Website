@@ -33,6 +33,40 @@
     });
   })();
 
+  // Position the circular process-diagram nodes using real measured geometry —
+  // computed from the SVG ring's actual radius, so nodes always land exactly
+  // on the ring regardless of screen size (no percentage guesswork).
+  (function(){
+    const circle = document.querySelector('.process-circle');
+    const ring = document.querySelector('.process-circle .ring-track');
+    const nodes = document.querySelectorAll('.process-node');
+    if(!circle || !ring || !nodes.length) return;
+
+    function placeNodes(){
+      const size = circle.clientWidth; // container is a 1:1 aspect-ratio square
+      if(!size) return;
+      const cx = size / 2;
+      const cy = size / 2;
+      // ring radius (168) is defined against a 400-unit viewBox in the SVG,
+      // so its real-world radius is always 168/400 of the rendered width.
+      const radius = size * (168 / 400);
+      nodes.forEach(node => {
+        const angleDeg = parseFloat(node.getAttribute('data-angle'));
+        const angleRad = angleDeg * (Math.PI / 180);
+        const x = cx + radius * Math.cos(angleRad);
+        const y = cy + radius * Math.sin(angleRad);
+        node.style.left = x + 'px';
+        node.style.top = y + 'px';
+      });
+    }
+
+    placeNodes();
+    window.addEventListener('resize', placeNodes);
+    window.addEventListener('load', placeNodes);
+    // Re-check shortly after fonts/layout settle, in case initial measurement was 0.
+    setTimeout(placeNodes, 250);
+  })();
+
   // Hero "cyber travel" warp effect — particles streaming outward like flying through a data tunnel.
   (function(){
     const canvas = document.getElementById('warpCanvas');
