@@ -1012,7 +1012,7 @@
     font-size:13px;
     color:var(--light-text);
   }
-  .socials{ display:flex; gap:16px; }
+  .socials{ display:flex; gap:16px; flex-wrap:wrap; }
   .socials a{
     width:34px;height:34px;
     border:1px solid var(--line);
